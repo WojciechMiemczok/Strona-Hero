@@ -1,0 +1,184 @@
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "Montserrat", serif;
+    font-optical-sizing: auto;
+    font-weight: 200;
+    font-style: normal;
+}
+.navbar{
+    width: 97vw;
+    height: 100px;
+    background-color: rgba(255, 255, 255, 0.747);
+    border-radius: 20px;
+    position: fixed;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.507);
+    left: 50%;
+    transform: translate(-50%);
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+}
+
+.navbar h1{
+    margin-left: 30px;
+    margin-right: 30px;
+}
+
+.background{
+    position: absolute;
+    top: 100vh;
+    width: 100%;
+    height: 8963px;
+    margin: 0;
+    padding: 0;
+    background: url(./images/NosTale_Scroller.png) no-repeat center top;
+    background-size: cover;
+    z-index: -1;
+}
+
+.welcome-page{
+    height: 100vh;
+    width: 100%;
+    background: url(./images/2019-10-24_NT_Keyart_Act7_Heroes.jpg);
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.welcome-page img{
+    width: 30vw;
+    filter: drop-shadow(10px 10px 15px rgba(0, 0, 0, 0.959));
+}
+
+.title{
+    margin-top: 50px;
+    color: aliceblue;
+    font-weight: 900;
+    font-size: 3vw;
+    line-height: 0;
+    text-shadow: 0px 0px 10px rgb(0, 0, 0)
+}
+
+#title2{
+    font-size: 1.7vw;
+    line-height: 0;
+    margin-top: 0.5%;
+}
+
+.welcome-page p{
+    color: #f5981d;
+    font-weight: 700;
+    font-size: 1.5vw;
+    text-shadow: 0px 0px 10px rgb(12, 12, 12)
+}
+
+#join-btn{
+    background-color: #f15722;
+    box-shadow: 0px 0px 20px 5px rgba(0, 0, 0, 0.747);
+    border: none;
+    padding: 20px;
+    height: 100px;
+    width: 15vw;
+    border-radius: 20px;
+    font-size: 1.5vw;
+    font-family: "Montserrat", serif;
+    font-weight: 500;
+    color: aliceblue;
+    transition: 0.2s ease-in-out;
+}
+
+#join-btn:hover{
+    background-color: #ff5d27;
+}
+
+.segment-2{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.segment-2 img{
+    width: 40%;
+    margin-right: 10%;
+    transition: 0.5s ease-in-out;
+}
+
+.segment-2 img:hover{
+    transform: rotate(10deg);
+
+}
+
+.segment-2 p{
+    font-size: 2vw;
+    margin-left: 10%;
+}
+
+.segment-3{
+
+    color: #1d1d1d;
+    text-shadow: 0px 0px 10px rgb(255, 110, 43);
+    width: 100%;
+    height: 400vh;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.segment-3-title{
+    font-weight: 700;
+    font-size: 2vw;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: sticky;
+    top: 10%;
+    margin-bottom: 365px;
+}
+
+
+.segment-3 img{
+    width: 80px;
+}
+
+
+.segment-3-content{
+    font-size: 2vw;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 5%;
+    margin-left: 10%;
+}
+
+.segment-3-conten-container{
+    width: 100%;
+    height: 365vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.cont1{
+    position: sticky;
+    top: 450px;
+    margin-bottom: 200px;
+}
+.cont2{
+    position: sticky;
+    top: 550px;
+    margin-bottom: 100px;
+}
+.cont3{
+    position: sticky;
+    top: 650px;
+}
+
