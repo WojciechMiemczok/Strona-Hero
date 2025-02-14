@@ -46,8 +46,10 @@
                 <img src="./images/Call_To_Action_Right_FG.png" alt="">
                 <p>Earn rewards for you and your viewers and connect with your community!</p>
             </div>
-
         </div>
+    </div>
+    <div class="segment-4">
+        <iframe id="vimeoPlayer" title="vimeo-player" src="https://player.vimeo.com/video/1056412731?h=06f65499d3&muted=1&loop=1&controls=0" frameborder="0"    allowfullscreen></iframe>
     </div>
 
 
@@ -56,10 +58,99 @@
 
     
 
+
+
+
+
+
+
  
 
 
     <!-- gif na stronę
     https://static.crm.gfsrv.net/hero/Tileview1.gif -->
 </body>
+
+<script src="https://player.vimeo.com/api/player.js"></script>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+    const iframe = document.getElementById("vimeoPlayer");
+    const player = new Vimeo.Player(iframe);
+
+    // Wymuszenie mute przez API
+    player.setMuted(true);
+
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                player.getCurrentTime().then(time => {
+                    if (time > 1) {  // Jeśli film już leciał, resetujemy go do początku
+                        player.setCurrentTime(0).then(() => {
+                            player.play().catch(error => {
+                                console.warn("Autoplay zablokowane przez przeglądarkę:", error);
+                            });
+                        });
+                    } else {
+                        player.play().catch(error => {
+                            console.warn("Autoplay zablokowane przez przeglądarkę:", error);
+                        });
+                    }
+                });
+            } else {
+                player.pause();
+            }
+        });
+    }, { threshold: 0 });
+
+    observer.observe(iframe);
+});
+
+
+
+
+
+
+    document.addEventListener("DOMContentLoaded", () => {
+    const videoContainer = document.querySelector(".segment-4");
+    const video = document.getElementById("vimeoPlayer");
+
+    window.addEventListener("scroll", () => {
+        const sectionRect = videoContainer.getBoundingClientRect();
+        const windowHeight = window.innerHeight;
+        const scrollProgress = (windowHeight - sectionRect.top) / sectionRect.height;
+        const bodyBackground = document.querySelector("body");
+        console.log(scrollProgress);
+
+        if (scrollProgress > 0.5 && scrollProgress < 0.95) {
+            bodyBackground.style.backgroundColor = "black";
+        } else {
+            bodyBackground.style.backgroundColor = "transparent";
+        }
+
+        if (scrollProgress >= 0 && scrollProgress <= 1) {
+            if (scrollProgress < 0.2) {
+                video.style.transform = `scale(0.4)`;
+            } else if (scrollProgress < 0.5) {
+                let scale = 0.4 + ((scrollProgress - 0.2) * 2);
+                video.style.transform = `scale(${scale})`;
+            } else {
+                video.style.transform = `scale(1)`;
+            }
+        }
+
+        // Sprawdzenie, czy dolna krawędź sekcji jest poza ekranem
+        if (sectionRect.bottom < windowHeight) {
+            let scale = 1 - ((windowHeight - sectionRect.bottom) / sectionRect.height) * 3; // Wolniejsze zmniejszanie
+            video.style.transform = `scale(${Math.max(scale, 0.4)})`;
+        }
+    });
+});
+
+
+
+
+
+</script>
+
 </html>
