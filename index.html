@@ -15,7 +15,7 @@
         <h1>GAME</h1>
     </div>
     <div class="welcome-page">
-        <img src="./images/LOGO_Join_our_story!_orgina.png" alt="logo.png">
+        <img  src="./images/LOGO_Join_our_story!_orgina.png" alt="logo.png">
         <h1 class="title" id="title1">CREATOR</h1>
         <h2 class="title" id="title2">PROGARAM</h2>
         <p>Create NosTale content, earn rewards and grow your channel!</p>
@@ -23,26 +23,26 @@
     </div>
     <div class="background"></div>
     <div class="segment-2">
-        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Doloremque totam modi assumenda delectus eligendi! Eligendi
+        <p class="hidden">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Doloremque totam modi assumenda delectus eligendi! Eligendi
              possimus iusto dolore sint, hic modi aut harum dolorem velit cumque error repellendus quasi magnam!</p>
-        <img src="./images/engel.png" alt="angel.img">
+        <img class="hidden" src="./images/engel.png" alt="angel.img">
     </div>
     <div class="segment-3">
         <div class="segment-3-title">
-                <h1>MADE FOR YOU!</h1>
-                <p>NosTale Creator Program is made to help you do what you do best</p>
+                <h1 class="hidden">MADE FOR YOU!</h1>
+                <p class="hidden">NosTale Creator Program is made to help you do what you do best</p>
         </div>
         <div class="segment-3-conten-container">
 
-            <div class="segment-3-content cont1">
+            <div class="segment-3-content cont1 hidden">
                 <img src="./images/2019-08-22_NT_SU16_Tropical_Costume_zShop_Icon_242x242_Wings.png" alt="">
                 <p>Boost your content with exclusive information</p>
             </div>
-            <div class="segment-3-content cont2">
+            <div class="segment-3-content cont2 hidden">
                 <img src="./images/image-from-rawpixel-id-12073517-png.png" alt="">
                 <p>Connect with us and showcase your result</p>
             </div>
-            <div class="segment-3-content cont3">
+            <div class="segment-3-content cont3 hidden">
                 <img src="./images/Call_To_Action_Right_FG.png" alt="">
                 <p>Earn rewards for you and your viewers and connect with your community!</p>
             </div>
@@ -114,6 +114,7 @@ document.addEventListener("DOMContentLoaded", () => {
     document.addEventListener("DOMContentLoaded", () => {
     const videoContainer = document.querySelector(".segment-4");
     const video = document.getElementById("vimeoPlayer");
+    const navbarHidden = document.querySelector(".navbar");
 
     window.addEventListener("scroll", () => {
         const sectionRect = videoContainer.getBoundingClientRect();
@@ -122,10 +123,10 @@ document.addEventListener("DOMContentLoaded", () => {
         const bodyBackground = document.querySelector("body");
         console.log(scrollProgress);
 
-        if (scrollProgress > 0.5 && scrollProgress < 0.95) {
-            bodyBackground.style.backgroundColor = "black";
+        if (scrollProgress > 0.3 && scrollProgress < 1.2) {
+            navbarHidden.style.opacity = "0";
         } else {
-            bodyBackground.style.backgroundColor = "transparent";
+            navbarHidden.style.opacity = "1";
         }
 
         if (scrollProgress >= 0 && scrollProgress <= 1) {
@@ -145,6 +146,21 @@ document.addEventListener("DOMContentLoaded", () => {
             video.style.transform = `scale(${Math.max(scale, 0.4)})`;
         }
     });
+});
+
+const contentObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+        } else {
+            entry.target.classList.remove("visible");
+        }
+    }, { threshold: 0.6 });
+});
+
+const hiddenElements = document.querySelectorAll('.hidden');
+hiddenElements.forEach(element => {
+    contentObserver.observe(element);
 });
 
 
