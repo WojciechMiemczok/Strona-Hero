@@ -36,7 +36,7 @@ body {
     height: 8963px;
     margin: 0;
     padding: 0;
-    background: url(https://i.postimg.cc/QCtNgpbM/Nos-Tale-Scroller.png) no-repeat center top;
+    background: url(./images/NosTale_Scroller.png) no-repeat center top;
     background-size: cover;
     z-index: -1;
 }
@@ -44,7 +44,7 @@ body {
 .welcome-page{
     height: 100vh;
     width: 100%;
-    background: url(https://i.postimg.cc/DZ5ybC1D/2019-10-24-NT-Keyart-Act7-Heroes.jpg);
+    background: url(./images/2019-10-24_NT_Keyart_Act7_Heroes.jpg);
     background-size: cover;
     display: flex;
     flex-direction: column;
